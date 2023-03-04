@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Thing = require('./models/Things');
 
+require('dotenv').config() ;
+
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -50,7 +52,7 @@ app.get('/api/stuff', (req, res, next) => {
 
 module.exports = app;
 
-mongoose.connect('mongodb+srv://selimboumedien:012345678@cluster0.pmf66mp.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGODB_URL,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
