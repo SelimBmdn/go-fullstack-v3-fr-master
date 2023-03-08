@@ -7,7 +7,7 @@ const multer = require('../middleware/multer-config');
 const stuffCtrl = require ('../conrollers/stuff');
 
 
-router.get('/', auth, stuffCtrl.getAllThings );
+router.get('/', stuffCtrl.getAllThings );
 //router.get('/', auth, stuffCtrl.getAllStuff);
 router.post('/', auth,multer, stuffCtrl.createThing);
 router.get('/:id', auth, stuffCtrl.getOneThing);
